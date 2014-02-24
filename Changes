@@ -1,0 +1,6 @@
+Revision history for Perl extension CIF::Format::Stix.
+
+1.99_01  Mon Feb 24 12:15:20 2014
+	- original version; created by h2xs 1.23 with options
+		-ABXb 5.11.0 CIF::Format::Stix
+
