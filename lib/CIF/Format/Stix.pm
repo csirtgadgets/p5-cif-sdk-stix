@@ -1,4 +1,4 @@
-package CIF::Format::Stix;
+package CIFx::Format::Stix;
 
 use Inline Python;
 
