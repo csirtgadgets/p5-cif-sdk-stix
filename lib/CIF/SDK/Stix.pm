@@ -3,9 +3,6 @@ package CIF::SDK::Stix;
 use strict;
 use warnings;
 
-##TODO
-## https://github.com/akreffett/cif_json2stix/blob/master/cif-json2stix.py
-
 our $VERSION = '0.00_01';
 $VERSION = eval $VERSION;  # see L<perlmodstyle>
 
@@ -15,11 +12,30 @@ CIF::SDK::Stix - Perl extension for integrating Stix with CIF
 
 =head1 SYNOPSIS
 
-  use CIF::SDK::Stix;
+  use feature 'say';
+  use CIF::SDK::FormatFactory;
+  my $obs = {
+      observable  => 'example.com',
+      tlp         => 'red',
+      tags        => 'botnet,zeus',
+      confidence  => 65,
+      group       => 'group1',
+      provider    => 'example.org',
+      reporttime  => (time() - 84600),
+  };
+
+  my $formatter = CIF::SDK::FormatFactory->new_plugin({ 
+      format      => 'stix', 
+      description => 'cif watchlist' 
+  });
+
+  my $xml = $formatter->process($obs);
+  
+  say $xml;
 
 =head1 DESCRIPTION
 
-Blah blah blah.
+A CIF SDK extension for manipuating STIX data.
 
 =head1 BUGS AND SUPPORT
 
@@ -27,7 +43,7 @@ Please report any bugs at L<http://github.com/csirtgadgets/p5-cif-sdk-stix/issue
 
 =head1 AUTHOR
 
-    Wes Young <wes@barely3am.com>
+  Wes Young <wes@barely3am.com>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,23 +1,64 @@
 package CIF::SDK::Format::Stix;
 
-use Inline Python;
+use Inline Python; # this needs to be before strict/warnings
 
 use strict;
 use warnings;
 
-use CIF qw/observable_type/;
 use Mouse;
 
-with 'CIF::Format';
+with 'CIF::SDK::Format';
 
-use constant DEFAULT_DESCRIPTION    => 'cif';
+=head1 NAME
+
+CIF::SDK::Format::Stix - Perl extension for writing out STIX data
+
+=head1 SYNOPSIS
+
+  use feature 'say';
+  use CIF::SDK::FormatFactory;
+  my $obs = {
+      observable  => 'example.com',
+      tlp         => 'red',
+      tags        => 'botnet,zeus',
+      confidence  => 65,
+      group       => 'group1',
+      provider    => 'example.org',
+      reporttime  => (time() - 84600),
+  };
+
+  my $formatter = CIF::SDK::FormatFactory->new_plugin({ 
+      format      => 'stix', 
+      description => 'cif watchlist' 
+  });
+
+  my $xml = $formatter->process($obs);
+  
+  say $xml;
+
+=head1 DESCRIPTION
+
+A simple translation between key-pairs and STIX.
+
+=cut
+
+=head2 Attributes
+
+=over
+
+=item description
+
+=cut
 
 has 'description' => (
     is      => 'ro',
     isa     => 'Str',
-    default => DEFAULT_DESCRIPTION(),
     reader  => 'get_description',
 );
+
+=back
+
+=cut
 
 sub understands {
     my $self = shift;
@@ -26,6 +67,14 @@ sub understands {
     return unless($args->{'format'});
     return 1 if($args->{'format'} eq 'stix');
 }
+
+=head2 Methods
+
+=over
+
+=item process
+
+=cut
 
 sub process {
     my $self = shift;
@@ -41,56 +90,11 @@ sub process {
     return $stix->to_xml();
 }
 
-__PACKAGE__->meta()->make_immutable();
-
-=head1 NAME
-
-CIF::Format::Stix - Perl extension for blah blah blah
-
-=head1 SYNOPSIS
-
-  use CIF::Format::Stix;
-  blah blah blah
-
-=head1 DESCRIPTION
-
-Stub documentation for CIF::Format::Stix, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Blah blah blah.
-
-=head2 EXPORT
-
-None by default.
-
-
-
-=head1 SEE ALSO
-
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
-
-=head1 AUTHOR
-
-Wesley Young, E<lt>wes@macports.orgE<gt>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright (C) 2014 by Wesley Young
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.12.4 or,
-at your option, any later version of Perl 5 you may have available.
-
+=back
 
 =cut
+
+__PACKAGE__->meta()->make_immutable();
 
 1;
 __DATA__

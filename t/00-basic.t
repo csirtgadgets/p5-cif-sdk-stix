@@ -6,9 +6,9 @@ use Test::More;
 use Data::Dumper;
 
 BEGIN {
-    use_ok('CIFx::Format::Stix');
-    use_ok('CIF::ObservableFactory');
-    use_ok('CIF::FormatFactory');
+    use_ok('CIF::SDK');
+    use_ok('CIF::SDK::FormatFactory');
+    use_ok('CIF::SDK::Stix');
 };
 
 my $ob = '10.0.0.1';
@@ -31,14 +31,14 @@ my $obs = {
     reporttime  => (time() - 84600),
 };
 
-my $msg = CIF::ObservableFactory->new_plugin($obs);
-
-my $formatter = CIF::FormatFactory->new_plugin({ 
+my $formatter = CIF::SDK::FormatFactory->new_plugin({ 
     format      => 'stix', 
     description => 'cif watchlist' 
 });
 
-my $xml = $formatter->process($msg);
+my $xml = $formatter->process($obs);
+
+diag($xml);
 
 ok($xml =~ /stix.mitre.org/,'testing output...');
 

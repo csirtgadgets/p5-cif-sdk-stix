@@ -1,0 +1,14 @@
+Makefile$
+_Inline
+ignore.txt
+.old
+.orig
+.gz
+MANIFEST
+blib
+.git
+.travis.yml
+.project
+.bak
+.swp
+MYMETA.
