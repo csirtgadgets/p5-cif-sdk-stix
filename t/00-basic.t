@@ -5,8 +5,8 @@ use warnings;
 use Test::More;
 use Data::Dumper;
 
-BEGIN { 
-    use_ok('CIF::Format::Stix');
+BEGIN {
+    use_ok('CIFx::Format::Stix');
     use_ok('CIF::ObservableFactory');
     use_ok('CIF::FormatFactory');
 };
