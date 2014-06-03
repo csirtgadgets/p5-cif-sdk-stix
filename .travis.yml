@@ -9,7 +9,9 @@ before_install:
     - cpanm Module::Install
     - git clone --depth=50 --branch=master git://github.com/csirtgadgets/p5-cif-sdk.git csirtgadgets/p5-cif-sdk
     - cd csirtgadgets/p5-cif-sdk
-    - perl Makefile.PL && make && make install
+    - perl Makefile.PL && make
+    - cpanm --installdeps --notest .
+    - make install
 
 notifications:
     email:
