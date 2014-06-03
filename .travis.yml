@@ -1,0 +1,16 @@
+language: perl
+perl:
+   - 5.19
+
+install:
+    - sudo install python-dev python-pip libxml-dev libxslt1-dev cython
+    - pip install cython stix
+
+notifications:
+    email:
+        on_success: never
+        on_failure: always
+branches:
+    only:
+        - master
+        - /^release-.*$/
