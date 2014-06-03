@@ -12,6 +12,7 @@ before_install:
     - perl Makefile.PL && make
     - cpanm --installdeps --notest .
     - make install
+    - exit 1
 
 notifications:
     email:
