@@ -1,30 +1,43 @@
-# CIF-Format-Stix
+# CIF-STIX Software Development Kit for Perl
 
-## INSTALLATION
+[![Build Status](https://travis-ci.org/csirtgadgets/p5-cif-sdk-stix.png?branch=master)](https://travis-ci.org/csirtgadgets/p5-cif-sdk-stix)
+
+# Installation
 
 To install this module type the following:
-```
-    perl Makefile.PL
-    make
-    make test
-    make install
-```
-## DEPENDENCIES
-```
-    python-stix library (sudo pip-2.7 install stix)
-    libxml-dev
-    libxslt1-dev
-    cython
-```
-## SEE ALSO
-```
-    github.com/STIXProject/python-stix
-    github.com/akreffett/cif_json2stix
-```
-COPYRIGHT AND LICENCE
+  ```bash
+  perl Makefile.PL
+  make
+  make test
+  make install
+  ```
+# Python Dependencies
+This SDK requires some Python dependencies to interact with the Stix Python library using Perl's ``Inline::Python`` package.
 
-    Copyright (C) 2014 by Wes Young <wesyoung.me>
+  ```bash
+  python-stix library
+  libxml-dev
+  libxslt1-dev
+  cython
+  ```
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.10.1 or,
-at your option, any later version of Perl 5 you may have available.
+# Support and Documentation
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc CIF::SDK::Stix
+
+You can also look for information at the [GitHub repo](https://github.com/csirtgadgets/p5-cif-sdk-stix).
+
+# SEE ALSO
+
+ * [python-stix](https://github.com/STIXProject/python-stix)
+ * [cif_json2stix](https://github.com/akreffett/cif_json2stix)
+
+# License and Copyright
+
+Copyright (C) 2014 [the CSIRT Gadgets Foundation](http://csirtgadgets.org)
+
+Free use of this software is granted under the terms of the [GNU Lesser General Public License](https://www.gnu.org/licenses/lgpl.html) (LGPL v3.0). For details see the file ``LICENSE`` included with the distribution.
+
