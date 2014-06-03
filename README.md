@@ -15,10 +15,8 @@ To install this module type the following:
 This SDK requires some Python dependencies to interact with the Stix Python library using Perl's ``Inline::Python`` package.
 
   ```bash
-  python-stix library
-  libxml-dev
-  libxslt1-dev
-  cython
+  easy_install pip
+  pip install python-stix libxml-dev libxslt1-dev cython
   ```
 
 # Support and Documentation
