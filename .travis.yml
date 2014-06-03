@@ -3,7 +3,7 @@ perl:
    - 5.19
 
 install:
-    - sudo apt-get udate > /dev/null
+    - sudo aptitude update
     - sudo aptitude install -y build-essential python-dev python-pip libxml-dev libxslt1-dev cython
     - pip install cython stix
     - cpanm inc::Module::Build
