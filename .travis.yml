@@ -7,6 +7,9 @@ install:
     - sudo apt-get install -y build-essential python-dev python-pip libxml2-dev libxslt1-dev cython
     - sudo pip install cython stix
     - cpanm Module::Install
+    - git clone --depth=50 --branch=master git://github.com/csirtgadgets/p5-cif-sdk.git csirtgadgets/p5-cif-sdk
+    - cd csirtgadgets/p5-cif-sdk
+    - perl Makefile.PL && make && make install
 
 notifications:
     email:
