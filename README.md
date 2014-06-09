@@ -13,7 +13,7 @@
  git clone https://github.com/csirtgadgets/p5-cif-sdk-stix.git -b master
  cd p5-cif-sdk-stix
  perl Makefile.PL
- cpanm --installdeps .
+ cpanm --installdeps . --mirror http://cpan.metacpan.org
  make
  make test
  make install
