@@ -5,7 +5,8 @@
 # Installation
 ## Ubuntu
  1. Install the [p5-cif-sdk](https://github.com/csirtgadgets/p5-cif-sdk) first.
- 1. Then type the following:
+ 1. Then type the following:  
+
  ```
  sudo apt-get install -y libxml-dev libxslt1-dev cython python-dev python-pip
  pip install stix
