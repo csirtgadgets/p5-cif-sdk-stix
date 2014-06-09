@@ -3,20 +3,20 @@
 [![Build Status](https://travis-ci.org/csirtgadgets/p5-cif-sdk-stix.png?branch=master)](https://travis-ci.org/csirtgadgets/p5-cif-sdk-stix)
 
 # Installation
-
-To install this module type the following:
-  ```bash
-  perl Makefile.PL
-  make
-  make test
-  make install
-  ```
-# Python Dependencies
-This SDK requires some Python dependencies to interact with the Stix Python library using Perl's ``Inline::Python`` package.
-
-  ```bash
-  pip install python-stix libxml2-dev libxslt1-dev cython
-  ```
+## Ubuntu
+ 1. Install the [p5-cif-sdk](https://github.com/csirtgadgets/p5-cif-sdk) first.
+ 1. Then type the following:
+ ```
+ sudo apt-get install -y libxml-dev libxslt1-dev cython python-dev python-pip
+ pip install stix
+ git clone https://github.com/csirtgadgets/p5-cif-sdk-stix.git -b master
+ cd p5-cif-sdk-stix
+ perl Makefile.PL
+ cpanm --installdeps .
+ make
+ make test
+ make install
+ ```
 
 # Support and Documentation
 
