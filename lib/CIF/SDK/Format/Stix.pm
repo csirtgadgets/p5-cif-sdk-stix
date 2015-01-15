@@ -105,6 +105,7 @@ from stix.core import STIXPackage, STIXHeader
 from cybox.common import Hash
 from cybox.objects.file_object import File
 from cybox.objects.address_object import Address
+from dateutil.parser import parse
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -121,7 +122,8 @@ def _create_stix(description):
 def _create_indicator(keypair):
     indicator = Indicator()
     indicator.set_producer_identity(keypair.get('provider'))
-    indicator.set_produced_time(time.strftime('%Y-%m-%dT%H:%M:%SZ', time.localtime(keypair.get('reporttime'))))
+
+    indicator.set_produced_time(keypair.get('reporttime'))
 
     indicator.description = ','.join(keypair.get('tags'))
     

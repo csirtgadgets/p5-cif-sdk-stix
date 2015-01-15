@@ -3,7 +3,7 @@ package CIF::SDK::Stix;
 use strict;
 use warnings;
 
-our $VERSION = '0.00_01';
+our $VERSION = '0.00_02';
 $VERSION = eval $VERSION;  # see L<perlmodstyle>
 
 =head1 NAME
