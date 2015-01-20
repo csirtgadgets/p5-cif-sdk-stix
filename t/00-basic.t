@@ -5,12 +5,12 @@ use warnings;
 use Test::More;
 use Data::Dumper;
 
+
 BEGIN {
     use_ok('CIF::SDK');
     use_ok('CIF::SDK::FormatFactory');
     use_ok('CIF::SDK::Stix');
 };
-
 my $ob = '10.0.0.1';
 
 my $obs = {
@@ -28,9 +28,8 @@ my $obs = {
         },
     ],
     provider    => 'example.org',
-    reporttime  => (time() - 84600),
+    reporttime  => '2015-01-01T00:00:00Z',
 };
-
 my $formatter = CIF::SDK::FormatFactory->new_plugin({ 
     format      => 'stix', 
     description => 'cif watchlist' 
@@ -38,7 +37,7 @@ my $formatter = CIF::SDK::FormatFactory->new_plugin({
 
 my $xml = $formatter->process($obs);
 
-diag($xml);
+#diag($xml);
 
 ok($xml =~ /stix.mitre.org/,'testing output...');
 

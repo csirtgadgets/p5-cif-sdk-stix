@@ -82,7 +82,10 @@ sub process {
     
     $data = [ $data ] unless(ref($data) eq 'ARRAY');
     
+   
+    
     my $stix = _create_stix($self->get_description());
+     
     foreach (@$data){
         my $i = _create_indicator({%$_}); # convert to a plain hash for python
         $stix->add_indicator($i);
@@ -110,9 +113,11 @@ from dateutil.parser import parse
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 import re
+import sys
 
 def _create_stix(description):
     stix_package = STIXPackage()
+    
     stix_header = STIXHeader()
     stix_header.description = description
     stix_package.stix_header = stix_header
@@ -121,10 +126,11 @@ def _create_stix(description):
     
 def _create_indicator(keypair):
     indicator = Indicator()
+    
     indicator.set_producer_identity(keypair.get('provider'))
-
+    
     indicator.set_produced_time(keypair.get('reporttime'))
-
+    
     indicator.description = ','.join(keypair.get('tags'))
     
     otype = keypair.get('otype')

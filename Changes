@@ -1,4 +1,7 @@
 Revision history for Perl extension CIF::Format::Stix.
 
+0.00_03 - 2015-01-15
+    - fixed tests
+
 0.00_02 - 2015-01-14
     - fixes: https://github.com/csirtgadgets/p5-cif-sdk-stix/issues/1
